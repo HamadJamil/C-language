@@ -1,0 +1,157 @@
+#include<stdio.h>
+
+// Function declarations
+void addition(int a, int b);
+void subtraction(int a, int b);
+void multiplication(int a, int b);
+void division(int a, int b);
+int power(int a, int b);
+void factorial(int a);
+
+int main() {
+    int operater;
+
+    // Main loop for calculator operations
+    repeat:
+    printf("\n");
+    printf("Enter 1 for Addition\nEnter 2 for Subtraction\nEnter 3 for Multiplication\nEnter 4 for Division\nEnter 5 for Power\nEnter 6 for Factorial\nEnter 7 To Exit\n");
+    scanf("%d", &operater);
+
+    // Handling different operations based on user input
+    if (operater == 1) {
+        system("cls");
+        int num1, num2;
+        printf("+++++ADDITION+++++\n");
+        printf("Enter The 1st Number\n");
+        scanf("%d", &num1);
+        printf("Enter The 2nd Number\n");
+        scanf("%d", &num2);
+        addition(num1, num2);
+        goto repeat;
+    } else if (operater == 2) {
+        system("cls");
+        int num1, num2;
+        printf("+++++SUBTRACTION+++++\n");
+        printf("Enter The 1st Number\n");
+        scanf("%d", &num1);
+        printf("Enter The 2nd Number\n");
+        scanf("%d", &num2);
+        subtraction(num1, num2);
+        goto repeat;
+    } else if (operater == 3) {
+        system("cls");
+        int num1, num2;
+        printf("+++++MULTIPLY+++++\n");
+        printf("Enter The 1st Number\n");
+        scanf("%d", &num1);
+        printf("Enter The 2nd Number\n");
+        scanf("%d", &num2);
+        multiplication(num1, num2);
+        goto repeat;
+    } else if (operater == 4) {
+        system("cls");
+        int num1, num2;
+        printf("+++++DIVISION+++++\n");
+        printf("Enter The 1st Number\n");
+        scanf("%d", &num1);
+
+        // Repeat until a valid non-zero divisor is entered
+        repeat1:
+        printf("Enter The 2nd Number\n");
+        scanf("%d", &num2);
+        if (num2 == 0) {
+            printf("Please Enter a valid Value\n");
+            goto repeat1;
+        }
+
+        // Perform division only if the divisor is non-zero
+        if (num2 != 0) {
+            division(num1, num2);
+        }
+        goto repeat;
+    } else if (operater == 5) {
+        system("cls");
+        int num1, num2;
+        printf("+++++POWER+++++\n");
+        printf("Enter The base Number\n");
+        scanf("%d", &num1);
+        printf("Enter The power\n");
+        scanf("%d", &num2);
+        printf("The Value of %d^%d is %d\n", num1, num2, power(num1, num2));
+        goto repeat;
+    } else if (operater == 6) {
+        system("cls");
+        int num1;
+        printf("+++++FACTORIAL+++++\n");
+        printf("Enter The Number\n");
+        scanf("%d", &num1);
+        factorial(num1);
+        goto repeat;
+    } else if (operater == 7) {
+        printf("Thanks For Using Calculator");
+    } else {
+        system("cls");
+        printf("Please Enter a Valid Operator\n");
+        goto repeat;
+    }
+
+    return 0;
+}
+
+// Function definitions
+
+// Addition function
+void addition(int a, int b) {
+    int total = 0;
+    total = a + b;
+    printf("Addition Of %d and %d is %d\n", a, b, total);
+}
+
+// Subtraction function
+void subtraction(int a, int b) {
+    int total = 0;
+    total = a - b;
+    printf("Subtraction Of %d and %d is %d\n", a, b, total);
+}
+
+// Multiplication function
+void multiplication(int a, int b) {
+    int total = 0;
+    total = a * b;
+    printf("Multiplication Of %d and %d is %d\n", a, b, total);
+}
+
+// Division function
+void division(int a, int b) {
+    float total = 0;
+
+    // Check if divisor is non-zero before performing division
+    if (b != 0) {
+        total = (float) a / b;
+        printf("Division of %d and %d is %f\n", a, b, total);
+    } else {
+        printf("Error: Division By Zero is Undefined\n");
+    }
+}
+
+// Power function
+int power(int a, int b) {
+    int total = 1;
+
+    // Calculate the power using a loop
+    for (int i = 1; i <= b; i++) {
+        total *= a;
+    }
+    return total;
+}
+
+// Factorial function
+void factorial(int a) {
+    int total = 1;
+
+    // Calculate the factorial using a loop
+    for (int i = a; i >= 1; i--) {
+        total *= i;
+    }
+    printf("The Factorial Of %d is %d\n", a, total);
+}
