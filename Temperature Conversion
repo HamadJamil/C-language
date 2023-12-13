@@ -1,0 +1,41 @@
+#include<stdio.h>
+
+    // Function prototypes
+    float celsius(float fahrenheit);
+    float fahrenheit(float celsius);
+
+    int main() {
+        // Variables to store temperatures in Celsius and Fahrenheit
+        float celsiusTemp, fahrenheitTemp;
+
+        // Print header for Celsius to Fahrenheit table
+        printf("\tCELSIUS\t\tFAHRENHEIT\n");
+
+        // Loop to convert Celsius to Fahrenheit and print the table
+        for (celsiusTemp = 0; celsiusTemp <= 100; celsiusTemp++) {
+            printf("\t%.2f\t\t%.2f\n", celsiusTemp, fahrenheit(celsiusTemp));
+        }
+
+        // Print separator
+        printf("\n--------------------------------\n\n");
+
+        // Print header for Fahrenheit to Celsius table
+        printf("\tFAHRENHEIT\tCELSIUS\n");
+
+        // Loop to convert Fahrenheit to Celsius and print the table
+        for (fahrenheitTemp = 32; fahrenheitTemp <= 212; fahrenheitTemp++) {
+            printf("\t%.2f\t\t%.2f\n", fahrenheitTemp, celsius(fahrenheitTemp));
+        }
+
+         return 0;
+      }
+
+      // Function to convert Fahrenheit to Celsius
+      float celsius(float fahrenheit) {
+          return (fahrenheit - 32) * 5 / 9;
+      }
+
+      // Function to convert Celsius to Fahrenheit
+      float fahrenheit(float celsius) {
+          return (celsius * 9 / 5) + 32;
+      }
