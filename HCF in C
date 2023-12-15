@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+    // Function prototype
+    int GCD(int x, int y);
+
+    int main() {
+        int num1, num2;
+
+        // Input two integers from the user
+        printf("Enter the first integer: ");
+        scanf("%d", &num1);
+
+        printf("Enter the second integer: ");
+        scanf("%d", &num2);
+
+        // Calculate and print the GCD
+        printf("GCD of %d and %d is: %d\n", num1, num2, GCD(num1, num2));
+
+        return 0;
+    }
+
+    // Recursive function to calculate the GCD
+    int GCD(int x, int y) {
+        // Base case: if y is equal to zero, the GCD is x
+        if (y == 0) {
+            return x;
+        } else {
+            // Recursive case: GCD(x, y) is GCD(y, x % y)
+            return GCD(y, x % y);
+        }
+    }
