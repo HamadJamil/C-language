@@ -1,0 +1,30 @@
+ #include <stdio.h>
+
+    int main() {
+
+        int quantity;
+        float price,discount,totalexpense;
+
+        printf("Enter The Quantity of Product ");       //Inputting Quantity Of Products
+        scanf("%d", &quantity);
+
+        printf("Enter The Price of Product ");            //Inputting Price Of Product
+        scanf("%f", &price);
+
+        if(quantity>1000){                                         //Deciding The Discount
+
+                discount=(float)10/100;
+                        }
+        else{
+
+                discount=(float)0/100;
+        }
+
+        totalexpense=quantity*price-quantity*price*discount;        // Calculate & Print Total Expenditure
+
+
+        printf("\nQuantity %5s Discount %5s Price %5s Total\n"," "," "," ");
+        printf("----------------------------------------------------------\n");
+        printf("%d         %3s %.2f       %s %.2f   %4s %.2f\n\n",quantity," ",discount," ",price," ",totalexpense);
+    return 0;
+    }
